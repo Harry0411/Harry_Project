@@ -1,0 +1,106 @@
+@import 'src/styles.scss';
+
+h2 {
+    font-weight: 300;
+    font-size: 2em;
+    margin: $halfSpacer 0;
+    padding: $spacer;
+    width:40%;
+    float: left;
+}
+  
+  .search-bar {
+    height: 44px;
+    width: 40%;
+    display: flex;
+    float: right;
+    margin: $spacer $doubleSpacer;
+    align-items: center;
+    padding: $halfSpacer;
+    position: relative;
+    border: 1px solid $blue-50;
+&:focus-within{
+    background-color: $white;
+    box-shadow: $material-shadow;
+    border: 1px solid $gray-300;
+}
+  }  
+
+  
+  .input {
+    border: none;
+    width: 95%;
+    color: #1b1b1b;
+    font-size: 16px;
+    outline: none;
+    background-color: transparent;
+    
+  }
+  
+  .input:not(:placeholder-shown) + .label {
+    font-size: 12px;
+    top: 3px;
+    color: #00c853;
+  }
+  
+  .input:focus ~ .label {
+    font-size: 11px;
+    top: 3px;
+    color: $primary;
+    transition: all 0.5s ease;
+  }
+  
+  .label {
+    color: #aaaaaa;
+    position: absolute;
+    top: 21px;
+    pointer-events: none;
+    transition: all 0.5s ease;
+  }
+  
+  .search-btn {
+    background: $primary;
+    border-radius: 20px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    justify-content: center;
+    cursor: pointer;
+    right: $halfSpacer;
+    position: absolute;
+    transition: all 1s ease;
+  }
+  
+  .icon {
+    display: inline-flex;
+  }
+  
+  .icon-18 {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .highlight {
+    width: 0px;
+    height: 2px;
+    background: $primary;
+    position: absolute;
+    bottom: 8px;
+    transition: all .5s ease;
+  }
+  
+  .input:focus ~ .highlight {
+    width: 90%;
+    transition: all .5s ease;
+  }
+
+  .search-data{
+      width:95%;
+      background-color: $white;
+      padding: $halfSpacer;
+      margin: $spacer auto;
+      box-shadow: $material-shadow;
+      clear: both;
+  }

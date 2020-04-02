@@ -1,0 +1,27 @@
+@import 'src/styles.scss';
+
+.leftbar {
+    width: 64px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(1, 0, 19, 0.9);
+
+    a {
+        padding: $spacer +2;
+        display: block;
+        margin-bottom: $spacer + $halfSpacer;
+
+        span {
+            color: $white;
+        }
+
+        .logo {
+            img {
+                width: 100%;
+                margin-top: $spacer;
+            }
+        }
+    }
+}

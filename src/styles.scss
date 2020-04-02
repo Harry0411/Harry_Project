@@ -1,0 +1,105 @@
+@import 'src/normalize.scss';
+@import 'src/variables.scss';
+
+$primary: $blue-100;
+$secondary: $blue-600;
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: $gray-100;
+
+    .primary {
+        background-color: $primary;
+        transition: background-color ease-in-out .2s;
+        color: $white !important;
+
+        &:hover {
+            background-color: $blue-200;
+        }
+    }
+
+    a.active {
+        border-bottom: 3px solid $primary;
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 40%;
+            bottom: 0;
+            border-style: solid;
+            border-width: 0 5px 6px 5px;
+            border-color: transparent transparent $primary transparent;
+        }
+    }
+
+    .page-container {
+        margin-left: 64px;
+
+        .page-banner {
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .table {
+        width: 95%;
+        border-collapse: collapse;
+        margin-bottom: $halfSpacer;
+        margin: 0 auto;
+
+        .row-header {
+            color: $gray-700;
+        }
+
+        tr {
+            border-bottom: 1px solid $gray-400;
+            font-size: 18px;
+
+            &:last-child {
+                border: 0;
+            }
+
+            th {
+                font-weight: 400;
+                padding: $halfSpacer;
+            }
+
+            td {
+                text-align: center;
+                padding: $spacer;
+                font-weight: 300;
+            }
+
+            .text-left {
+                text-align: left;
+            }
+        }
+
+        tr:hover {
+
+            >td,
+            >th {
+                background-color: rgba($gray-300, 0.125);
+            }
+        }
+    }
+
+    tr.active-row {
+            background-color: rgba(138, 218, 255, 0.3);
+            box-shadow: $material-shadow;
+        }
+}
+.footer{
+    background-color: $white;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
+    padding: $spacer;
+}

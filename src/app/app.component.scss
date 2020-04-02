@@ -1,0 +1,19 @@
+@import 'src/styles.scss';
+.pre-loader{
+    width: 100vw;
+    height: 100vh;
+    background-color: #e3e3e3;
+    transition: 4s;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    transition: 4s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    .loader{
+        display:none;
+        width: 320px;
+        height: 240px;
+    }
+}

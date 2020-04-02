@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="home-banner">
+        <img src="../assets/images/homepage-hero.png" />
+    </div>
+    <div class="right-col">
+        <div class="short-desc" *ngIf="!showForm">
+            <h1>8 gazillion channels, one genius way to find.</h1>
+            <h2>TiVo Stream 4K.</h2>
+            <ul>
+                <li>Over-the-air TV. Your favorite streamers. A powerful DVR. One single device. TiVo makes your
+                    favorite apps feel like TV</li>
+                <li>Go beyond the cable box with the one device for all your live, recorded and streaming TV</li>
+            </ul>
+            <button type="button" class="add-cust" (click)="custForm();">
+                <span class="material-icons">add_circle_outline</span> &nbsp;Add New Customer</button>
+        </div>
+        <div class="add-customer-form" *ngIf="showForm">
+            <h2>Add New Customer</h2>
+            <form #customerInfo>
+                <mat-form-field>
+                    <mat-label>Region Code</mat-label>
+                    <mat-select [formControl]="regnCode">
+                        <mat-option *ngFor="let rgncode of regionCode" [value]="rgncode.value">
+                            {{rgncode.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- ------- Region Code -------- -->
+                <mat-form-field class="example-form-field">
+                    <mat-label>TSN (unique STB number)</mat-label>
+                    <input matInput type="text" name="tsn" [formControl]="tsn">
+                </mat-form-field>
+                <!-- ------- tsn Number -------- -->
+                <mat-form-field class="example-form-field">
+                    <mat-label>Customer Name</mat-label>
+                    <input matInput type="text" name="cust-name" [formControl]="custName">
+                </mat-form-field>
+                <!-- ------- Customer Name -------- -->
+                <mat-form-field class="example-form-field">
+                    <mat-label>Customer Email</mat-label>
+                    <input matInput type="email" name="cust-mail" [formControl]="custEmail">
+                </mat-form-field>
+                <!-- ------- Customer email -------- -->
+                <mat-form-field>
+                    <mat-label>Choose Package</mat-label>
+                    <mat-select [formControl]="packages" multiple>
+                        <mat-option *ngFor="let packages of packageList" [value]="packageObj[packages]">{{packages}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- ------- Package -------- -->
+                <mat-form-field>
+                    <mat-label>Choose AddOns</mat-label>
+                    <mat-select [formControl]="addons" multiple>
+                        <mat-option *ngFor="let addons of addonList" [value]="addonObj[addons]">{{addons}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- ------- Add Ons -------- -->
+                <div class="button-row">
+                    <button mat-raised-button (click)="onClear();">Cancel</button>
+                    <button type="button" mat-raised-button color="primary" (click)="onSubmit($event);">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="sep"></div>
+<div class="customer-details" #custDetails>
+    <mat-accordion>
+        <mat-expansion-panel [expanded]="panelOpenState">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Customer Subscription Details
+                </mat-panel-title>
+                <mat-panel-description>
+                    <!-- Type your name and age -->
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <table class="table" (click)="tableClk();">
+                <tr>
+                    <th>Region Code</th>
+                    <th>Unique STB Number</th>
+                    <th>Customer Name</th>
+                    <th>Customer Email</th>
+                    <th>Package Details</th>
+                    <th>Addon Details</th>
+                </tr>
+                <ng-container *ngFor="let row of tableRows; let i=index">
+                    <tr [class.active-row] = "rowIndex == i">
+                        <td>{{row.regionCode}}</td>
+                        <td>{{row.tsn}}</td>
+                        <td>{{row.personalInfo.name}}</td>
+                        <td>{{row.personalInfo.email}}</td>
+                        <td>{{row.package}}</td>
+                        <td>{{row.addOnService}}</td>
+                    </tr>
+                </ng-container>
+
+            </table>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+
+</div>
